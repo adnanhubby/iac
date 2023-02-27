@@ -1,0 +1,34 @@
+---
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:                # replication Controller
+  name: myapp-replicaset
+  labels:
+    app: myapp 
+    type: front-end
+spec:                     # replication Controller
+  template: 
+    metadata:             #  The pod
+      name: myapp-pod
+      labels: 
+        app: myapp
+        type: front-end
+    spec:                 # the Pod
+      containers: 
+      - name: nginx-controller
+        image: nginx
+  replicas: 6
+  selector: 
+    matchLabels:
+      type: front-end
+
+
+#Labels and Selectors so the replicaset is a process that monitors the pods and knows which pods to monitor. 
+# selector: 
+#     matchLabels:
+#       type: front-end
+
+# metadata:                # replication Controller
+#   name: myapp-replicaset
+#   labels:
+#     type: front-end      

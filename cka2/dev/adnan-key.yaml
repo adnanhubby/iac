@@ -1,0 +1,13 @@
+apiVersion: certificates.k8s.io/v1beta1
+kind: CertificateSigningRequest
+metadata:
+  name: adnan
+spec: 
+  groups:
+  - system:authenticated
+  usages:
+  - digital sign 
+  - key encipherment
+  - server auth 
+  requests: 
+    <paste the certificate in base 64 encoded>
